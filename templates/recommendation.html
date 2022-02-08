@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Recommendations
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="../static/buttonpress.js"></script>
+        <script src="{{url_for('static', filename='recommendation.js')}}"></script>
+    {% endblock %}
+
+    {% block content %}
+    <div class="container-fluid" style="background-color: #81C3D7 !important; height:100vh !important;">
+        <p class="text-center fs-2 googfont " style="padding-top: 80px !important;">Get recommendations by</p> 
+        <div class="row align-items-center">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <button id="One" type="button" class="btn btn-outline-primary btn-lg " data-bs-toggle="button" autocomplete="off" disabled>Artist</button>
+                <button id="Two" type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="button" autocomplete="off" disabled>Playlists</button>
+                <button id="Three" type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="button" autocomplete="off">Genre</button>
+            </div>
+        </div>
+        <div class="row justify-content-center " style="padding-top: 80px !important; padding-bottom: 20px !important;">
+            
+                
+        </div>    
+       <div class="row justify-content-center " style=" padding-bottom: 20px !important;">   
+            <div class="col-sm-2 justify-content-md-center">
+
+                <form method="POST" action="{{ url_for('genre')}}">
+                    <label for="exampleFormControlInput1" class="form-label">Enter a zip code:</label>
+                    <input name="zip-code" class="form-control" type="text" placeholder="90210" aria-label="default input example" style="margin-bottom: 20px;">
+
+                    <button type="submit" class="btn btn-outline-primary" style="margin-left:64px !important" >Search</button>
+                </form>                
+                <!-- <select class="form-select" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select> -->
+            </div>
+        </div> 
+    </div>
+    {% endblock %}
